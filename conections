@@ -22,7 +22,7 @@ def nodeSystem(nodes):
     for i in layers:
       if i.isdigit():  
         if layers.index(i) != len(layers)-1:
-          k += int(layers[layers.index(i)])*int(layers[layers.index(i)+1])
+          k += int(int)*int(layers[layers.index(i)+1])
       else: 
         print("Error, enter only numbers")
         optionProcess("a")
