@@ -1,0 +1,39 @@
+def main():
+  print("a-Number of conections of a node system")
+  print("b-Number of conections of a simple vertices system")
+  option = input("Choose a mode (a or b): ")
+  optionProcess(option)
+  
+def optionProcess(option):  
+  if option == "a" or option == "A":
+    nodes = input("enter the number of nodes for each layer (separating with a comma): ")
+    nodeSystem(nodes)
+  elif option == "b" or option == "B":
+    vertices = input("enter the number of vertices: ")
+    verticesSystem(vertices)
+  else:
+    print("Choose a correct mode, try again")
+    main()
+
+def nodeSystem(nodes):
+  layers = nodes.split(",") 
+  k = 0
+  if len(layers) > 1:
+    for i in layers:
+      if i.isdigit():  
+        if layers.index(i) != len(layers)-1:
+          k += int(layers[layers.index(i)])*int(layers[layers.index(i)+1])
+      else: 
+        print("Error, enter only numbers")
+        optionProcess("a")
+  print("The number of conections is", k)  
+
+def verticesSystem(vertices):
+  if vertices.isdigit():
+    k = int((int(vertices)**2 - int(vertices))/2)
+    print("The number of conections is", k)
+  else: 
+    print("Error, enter only numbers")
+    optionProcess("b")
+
+main()    
